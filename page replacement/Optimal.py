@@ -1,22 +1,22 @@
 capacity = int(input("Enter the no. of frames in memory : "))
 p = int(input("Enter the no. of pages : "))
 print("Enter the reference string : ",end="")
-s = list(map(int, input().strip().split()))
-f, fault= [], 0
+ref_str = list(map(int, input().strip().split()))
+frames, fault= [], 0
 occurance = [None for i in range(capacity)]
-for i in range(len(s)):
-    if s[i] not in f:
-        if len(f) < capacity:
-            f.append(s[i])
+for i in range(len(ref_str)):
+    if ref_str[i] not in frames:
+        if len(frames) < capacity:
+            frames.append(ref_str[i])
         else:
-            for x in range(len(f)):
-                if f[x] not in s[i+1:] :
-                    f[x] = s[i]
+            for x in range(len(frames)):
+                if frames[x] not in ref_str[i+1:] :
+                    frames[x] = ref_str[i]
                     break
                 else:
-                    occurance[x] = s[i+1:].index(f[x])
+                    occurance[x] = ref_str[i+1:].index(frames[x])
             else:
-                f[occurance.index(max(occurance))] = s[i]
+                frames[occurance.index(max(occurance))] = ref_str[i]
         fault  += 1
         
 print("Hit count : ", (p-fault))

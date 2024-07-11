@@ -24,5 +24,5 @@ if __name__ == '__main__':
     size = int(input("Enter the no. of  requesting tracks : "))
     print("enter the the requesting tracks:")
     arr = list(map(int, input().split()))
-    head = int(input("enter the initial point of head: "))
+    head = int(input("enter the initial head position: "))
     SSTF(arr, head, size, total_tracks)

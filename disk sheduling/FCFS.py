@@ -6,7 +6,7 @@ def FCFS(arr, head, size, total_tracks):
     seek_count = 0
     distance, cur_track = 0, 0
 
-    for i in range(size):
+    for i in range(1, size+1):
         cur_track = arr[i]
         distance = abs(cur_track - head)
         seek_count += distance
@@ -18,8 +18,6 @@ def FCFS(arr, head, size, total_tracks):
     plt.ylim(0, total_tracks)
     plt.plot(arr, marker='o')
     plt.title("FCFS Disk Scheduling")
-    plt.xlabel("Sequence of Requests")
-    plt.ylabel("Track Number")
     plt.grid(True)
     plt.show()
 
@@ -30,5 +28,5 @@ if __name__ == '__main__':
     size = int(input("Enter the no. of  requesting tracks : "))
     print("enter the the requesting tracks:")
     arr = list(map(int, input().split()))
-    head = int(input("enter the initial point of head: "))
+    head = int(input("enter the initial head position: "))
     FCFS(arr, head, size, total_tracks)
